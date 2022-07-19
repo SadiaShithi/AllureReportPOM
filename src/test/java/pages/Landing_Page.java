@@ -3,6 +3,7 @@ package pages;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import org.openqa.selenium.JavascriptExecutor;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -30,11 +31,15 @@ public class Landing_Page extends Base {
 		driver.findElement(hitIcon).click();
 	}
 
-	public void slideMe() {
+	public void slideMe() throws InterruptedException {
 		WebElement slideMe = driver.findElement(slider);
 
 		Actions action = new Actions(driver);
 		action.dragAndDropBy(slideMe, -75, 0).perform();
+		Thread.sleep(7000);
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,1000)");
+
 	}
 
 	public void makeList() {
