@@ -23,7 +23,7 @@ public class Sort_TV_and_List_Item_Test extends Base {
 	@When("Hit the search bar")
 	public void hit_the_search_bar() throws InterruptedException {
 		landingPage.hitSearch();
-		Thread.sleep(5000);
+		// Thread.sleep(5000);
 	}
 
 	@Then("Sort Item by slider {int} px")
@@ -39,7 +39,7 @@ public class Sort_TV_and_List_Item_Test extends Base {
 	@Then("Find the Most Expensive Item Among Those")
 	public void find_the_most_expensive_item_among_those() throws InterruptedException {
 	    landingPage.expensiveItem();
-	    Thread.sleep(5000);
+	    // Thread.sleep(5000);
 	}
 	
 }
