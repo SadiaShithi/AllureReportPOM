@@ -25,7 +25,7 @@ public class Base {
 	}
 	
 	public static String getText(By by) {
-		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		return driver.findElement(by).getText();
 	}
 	
