@@ -33,7 +33,7 @@ public class Landing_Page extends Base {
 
 	public void slideMe() throws InterruptedException {
 		WebElement slideMe = driver.findElement(slider);
-
+		Thread.sleep(5000);
 		Actions action = new Actions(driver);
 		action.dragAndDropBy(slideMe, -75, 0).perform();
 		Thread.sleep(7000);
@@ -62,7 +62,9 @@ public class Landing_Page extends Base {
 	public void expensiveItem() {
 		List<WebElement> productPrices = driver.findElements(itemPrice);
 		int f = 0;
-
+		
+		List<Integer> numbers = new ArrayList<Integer>();
+		
 		for (WebElement price : productPrices) {
 			String s = price.getText();
 			char r = s.charAt(0);
@@ -72,14 +74,17 @@ public class Landing_Page extends Base {
 
 			// System.out.println(n);
 
-			List<Integer> numbers = new ArrayList<Integer>(n);
-			Collections.sort(numbers);
+			numbers.add(n);
+			
 
 			// System.out.println(numbers);
 
-			f = numbers.get(numbers.size()- 1);
-
-		}
+			
+			}
+		Collections.sort(numbers);
+		
+		f = numbers.get(numbers.size()- 1);
+		
 		System.out.print("The most expensive product in the list costs $" + f);
 
 		 

@@ -27,8 +27,10 @@ public class Sort_TV_and_List_Item_Test extends Base {
 	}
 
 	@Then("Sort Item by slider {int} px")
-	public void sort_item_by_slider_px(Integer int1) {
-	    landingPage.slideMe();
+	public void sort_item_by_slider_px(Integer int1) throws InterruptedException {
+		Thread.sleep(5000);
+		landingPage.slideMe();
+		Thread.sleep(5000);
 	}
 
 	@Then("Make a List of Products on the Page")
