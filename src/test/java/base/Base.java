@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Base {
 
 	protected static WebDriver driver;
-	static WebDriverWait wait = new WebDriverWait(driver,20);
+	static WebDriverWait wait = new WebDriverWait(driver,100);
 
 	public static void getURL(String s) {
 		driver.get(s);
@@ -25,7 +25,7 @@ public class Base {
 	}
 	
 	public static String getText(By by) {
-		//wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+		wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		return driver.findElement(by).getText();
 	}
 	

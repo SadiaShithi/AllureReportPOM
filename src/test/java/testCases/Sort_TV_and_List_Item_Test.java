@@ -32,8 +32,10 @@ public class Sort_TV_and_List_Item_Test extends Base {
 	}
 
 	@Then("Make a List of Products on the Page")
-	public void make_a_list_of_products_on_the_page() {
+	public void make_a_list_of_products_on_the_page() throws InterruptedException {
+	   Thread.sleep(5000);
 	   landingPage.makeList();
+	   Thread.sleep(5000);
 	}
 
 	@Then("Find the Most Expensive Item Among Those")
