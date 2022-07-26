@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import org.openqa.selenium.JavascriptExecutor;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 import base.Base;
 
 public class Landing_Page extends Base {
@@ -31,18 +32,26 @@ public class Landing_Page extends Base {
 		driver.findElement(hitIcon).click();
 	}
 
-	public void slideMe() throws InterruptedException {
+	public void slideMe(int px) {
+		
 		WebElement slideMe = driver.findElement(slider);
-		Thread.sleep(5000);
-		Actions action = new Actions(driver);
-		action.dragAndDropBy(slideMe, -75, 0).perform();
-		Thread.sleep(7000);
+		
+		wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
+		
+		Actions action = new Actions(driver); 
+		
+		//slides the slider
+		action.dragAndDropBy(slideMe, px, 0).perform();
+		wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
+		
+		//scrolls down on the page
 		JavascriptExecutor js = (JavascriptExecutor) driver;
-		js.executeScript("window.scrollBy(0,1000)");
+		js.executeScript("window.scrollBy(0,3000)");
 
 	}
 
 	public void makeList() {
+		
 		List<WebElement> products = driver.findElements(items);
 		List<WebElement> productPrices = driver.findElements(itemPrice);
 
@@ -50,40 +59,42 @@ public class Landing_Page extends Base {
 			if (products.size() == productPrices.size()) {
 				System.out.println("Making A List of Products Below...");
 			}
-		} catch (ArithmeticException e) {
+		} 
+		catch (ArithmeticException e) {
 			System.out.println("Please check the xpaths again.");
 		}
+		
 		System.out.println("\nS/N			Product Names				Product's Price");
+		
 		for (int i = 0; i < products.size(); i++) {
 			System.out.println(i + 1 + ". " + products.get(i).getText() + "	-	" + productPrices.get(i).getText());
 		}
 	}
 
 	public void expensiveItem() {
+		
 		List<WebElement> productPrices = driver.findElements(itemPrice);
 		int f = 0;
 		
 		List<Integer> numbers = new ArrayList<Integer>();
 		
 		for (WebElement price : productPrices) {
-			String s = price.getText();
-			char r = s.charAt(0);
-			String S = s.replace(r, ' ').trim();
-			String num = S.replace(",", "").trim();
-			int n = Integer.parseInt(num);
-
-			// System.out.println(n);
-
+			
+			//String Manipulation to remove the "$" from Price Text & casting into int
+			String s = price.getText();//gets each item price
+			char r = s.charAt(0); //here "r" stores the first char
+			String S = s.replace(r, ' ').trim(); //"r" is replaced by a " " & trimmed
+			String num = S.replace(",", "").trim();//"," is replaced by "" & trimmed
+			int n = Integer.parseInt(num); // n stores the casted int value of the String
+			
+			//adding n in the new List through the looping 
 			numbers.add(n);
 			
-
-			// System.out.println(numbers);
-
-			
-			}
-		Collections.sort(numbers);
+		}
 		
-		f = numbers.get(numbers.size()- 1);
+		Collections.sort(numbers); //sorting the numbers List in Ascending order
+		
+		f = numbers.get(numbers.size()- 1); //f stores the highest number of the List
 		
 		System.out.print("The most expensive product in the list costs $" + f);
 

@@ -8,7 +8,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class Base {
 
 	protected static WebDriver driver;
-	static WebDriverWait wait = new WebDriverWait(driver,100);
+	
+	
+	
+	protected static WebDriverWait wait = new WebDriverWait(driver,100);
 
 	public static void getURL(String s) {
 		driver.get(s);
