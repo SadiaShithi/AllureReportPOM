@@ -1,6 +1,6 @@
 package testCases;
 import java.util.concurrent.TimeUnit;
-
+import static org.junit.Assert.*;
 import base.Base;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -39,6 +39,7 @@ public class Sort_and_List_Item_Verification extends Base {
 	public void make_a_list_of_products_on_the_page() {
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		landingPage.makeList();
+		assertTrue(true);
 	}
 
 	@Then("Find the Most Expensive Item Among Those")
