@@ -14,7 +14,7 @@
     Then Sort Item by slider -75 px 
     And Make a List of Products on the Page 
     And Find the Most Expensive Item Among Those
-
+    
   @tag2
  	Scenario Outline: User-Login Verification
     When Click on Login Button
