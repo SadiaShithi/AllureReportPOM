@@ -32,7 +32,7 @@ public class Login_page extends Base {
 	
 	public String getLogintext() {
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(popUpMsg));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(popUpMsg));
 		
 		Alert alertDialog = driver.switchTo().alert();
 

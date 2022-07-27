@@ -1,4 +1,4 @@
-package testCases;
+package step_definitions;
 import java.util.concurrent.TimeUnit;
 import static org.junit.Assert.*;
 import base.Base;
@@ -13,7 +13,7 @@ public class Sort_and_List_Item_Verification extends Base {
 	
 	@Given("Redirect to {string}")
 	public void i_am_redirecting_to(String string) {
-		getURL(string);
+		navigateURL(string);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		landingPage.closePopUp();
 	}

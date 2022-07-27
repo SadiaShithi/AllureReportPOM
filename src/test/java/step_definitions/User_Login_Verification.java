@@ -1,4 +1,4 @@
-package testCases;
+package step_definitions;
 
 import static org.junit.Assert.*;
 

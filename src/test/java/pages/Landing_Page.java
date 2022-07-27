@@ -36,13 +36,13 @@ public class Landing_Page extends Base {
 		
 		WebElement slideMe = driver.findElement(slider);
 		
-		wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
 		
 		Actions action = new Actions(driver); 
 		
 		//slides the slider
 		action.dragAndDropBy(slideMe, px, 0).perform();
-		wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
+		//wait.until(ExpectedConditions.visibilityOfElementLocated(slider));
 		
 		//scrolls down on the page
 		JavascriptExecutor js = (JavascriptExecutor) driver;
